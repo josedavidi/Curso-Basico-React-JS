@@ -3,25 +3,23 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 
-class Contador extends Component
+class Blog extends Component
 {
   constructor(props)
   {
     super(props);
     this.state = {
-      contador : 0
+      noticias : ['Noticia 1','Noticia 2','Noticia 3']
     }
   }
-  aumentar = ()=>{this.setState({contador:this.state.contador + 1})}
-  
+
   render()
   {
     return (
-      <div>
-        <p>{this.state.contador}</p>
-        <button>Contar</button>
-      </div>
-    );
+        <div>
+          {this.state.noticias.map((noticia)=>{return  <p>{noticia}</p>})}
+        </div>
+      )
   }
 }
 
@@ -36,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        < Contador />
+        < Blog />
       </div>
     );
   }
